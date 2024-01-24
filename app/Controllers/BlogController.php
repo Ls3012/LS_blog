@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Database\dbConnection;
 
 class BlogController extends Controller{
 
@@ -14,10 +13,11 @@ class BlogController extends Controller{
 
     public function show(int $id)
     {
-        $db = new dbConnection('lt_blog_php','localhost','root','root');
-        $req = $db->getPDO()->query('SELECT * FROM lt_blog_article');
+        $req = $this->db->getPDO()->query('SELECT * FROM lt_blog_article');
         $posts = $req->fetchAll();
-        var_dump($posts);
+        foreach ($posts as $post) {
+            echo $post->title;
+        }
 
         return $this->view ('blog.show', compact ('id'));
     }
