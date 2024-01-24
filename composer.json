@@ -1,0 +1,11 @@
+{
+    "name": "louistrip/ls_blog",
+    "description": "LS_Blog",
+    "autoload": {
+        "psr-4": {
+            "Router\\": "routes/",
+            "App\\": "app/"
+        }
+    },
+    "require": {}
+}
