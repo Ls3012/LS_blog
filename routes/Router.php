@@ -24,7 +24,7 @@ class Router {
         {
             if ($route->matches($this->url))
             {
-                $route->execute();
+                return $route->execute();
             }
 
         }

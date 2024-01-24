@@ -1,4 +1,4 @@
-<h1>homepage</h1>
+<h1>Homepage</h1>
 
 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
      Porro sed perferendis cumque? Recusandae, sapiente eaque error qui porro dolores animi dolor vel incidunt, 
