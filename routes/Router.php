@@ -2,6 +2,8 @@
 
 namespace Router;
 
+use App\Exceptions\NotFoundException;
+
 class Router {
 
     public $url; 
@@ -21,6 +23,12 @@ class Router {
         $this->routes['GET'][] = new Route($path, $action);
     }
 
+    public function post(string $path, string $action)
+    {
+        // Ajoute une nouvelle route POST au tableau des routes
+        $this->routes['POST'][] = new Route($path, $action);
+    }
+
     public function run()
     {
         // Parcourt les routes correspondant à la méthode HTTP actuelle
@@ -34,6 +42,7 @@ class Router {
 
         }
 
-        return header('HTTP/1.0 404 Not Found');
+        throw new NotFoundException("La page est introuvable");
+
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Router\Router;
+use App\Exceptions\NotFoundException;
 
 require '../vendor/autoload.php';
 
@@ -18,4 +19,13 @@ $router ->get('/', 'App\Controllers\BlogController@homepage'); //A modifier welc
 $router ->get('/posts', 'App\Controllers\BlogController@index');
 $router ->get ('/posts/:id','App\Controllers\BlogController@show');
 
-$router -> run();
+$router->get('/admin/posts', 'App\Controllers\Admin\PostController@index');
+$router->post('/admin/posts/delete/:id', 'App\Controllers\Admin\PostController@destroy');
+
+try {
+    $router -> run();
+}     catch (NotFoundException $e)
+{
+    echo ''. $e->getMessage();
+    return $e->error404();
+}
