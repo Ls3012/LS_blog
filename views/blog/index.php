@@ -1,17 +1,20 @@
-<h1>Homepage</h1>
+<h1> Les derniers articles </h1>
 
-<p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Porro sed perferendis cumque? Recusandae, sapiente eaque error qui porro dolores animi dolor vel incidunt, 
-     quidem fugiat suscipit quia eligendi omnis fuga?</p>
-<p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Porro sed perferendis cumque? Recusandae, sapiente eaque error qui porro dolores animi dolor vel incidunt, 
-     quidem fugiat suscipit quia eligendi omnis fuga?</p>
-<p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Porro sed perferendis cumque? Recusandae, sapiente eaque error qui porro dolores animi dolor vel incidunt, 
-     quidem fugiat suscipit quia eligendi omnis fuga?</p>
-<p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Porro sed perferendis cumque? Recusandae, sapiente eaque error qui porro dolores animi dolor vel incidunt, 
-     quidem fugiat suscipit quia eligendi omnis fuga?</p>
-<p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Porro sed perferendis cumque? Recusandae, sapiente eaque error qui porro dolores animi dolor vel incidunt, 
-     quidem fugiat suscipit quia eligendi omnis fuga?</p>
+<?php foreach ($params['posts'] as $post): ?>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <h2>
+                <?= $post->title ?> 
+            </h2>
+            <small>
+                <?= $post->creationDate_Art?>
+            </small>
+            <p>
+                <?= $post->content_Art ?>
+            </p>
+            <a href="/ProjetsOC/LS_Blog/posts/<?= $post->idArticle?>" class="btn btn-primary">Voir article</a>
+        </div>
+    </div>
+
+<?php endforeach ?>
