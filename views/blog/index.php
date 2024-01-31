@@ -7,13 +7,13 @@
             <h2>
                 <?= $post->title ?> 
             </h2>
-            <small>
-                <?= $post->creationDate_Art?>
+            <small class="badge badge-secondary" style="background-color: burlywood">
+                Publié le <?= $post->getCreatedAt()?>
             </small>
             <p>
-                <?= $post->content_Art ?>
+                <?= $post->getExcerpt() ?>
             </p>
-            <a href="/ProjetsOC/LS_Blog/posts/<?= $post->idArticle?>" class="btn btn-primary">Voir article</a>
+            <?= $post->getButton() ?>
         </div>
     </div>
 

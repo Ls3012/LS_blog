@@ -13,12 +13,8 @@ class BlogController extends Controller{
     }
     public function index()
     {
-        $post = new Post();
+        $post = new Post($this->getDB());
         $posts = $post->all();
-        
-        // Méthode pour afficher la page d'accueil du blog
-        $stmt = $this->db->getPDO()->query('SELECT * FROM lt_blog_article ORDER BY creationDate_Art DESC');
-        $posts = $stmt ->fetchAll();
 
         return $this->view ('blog.index', compact('posts'));
 
@@ -26,9 +22,8 @@ class BlogController extends Controller{
 
     public function show(int $id)
     {
-        $stmt = $this->db->getPDO()->prepare('SELECT * FROM lt_blog_article WHERE idArticle = ?');
-        $stmt->execute([$id]);
-        $post = $stmt->fetch();
+        $post = new Post($this->getDB());
+        $post = $post->findById($id);
 
         // Affichage de la vue de la page détaillée de l'article
         return $this->view ('blog.show', compact ('post'));

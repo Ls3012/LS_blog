@@ -44,7 +44,7 @@ class Route
         // Sépare le nom du contrôleur et le nom de la méthode à partir de l'action
         $params = explode('@', $this->action);
         // Instancie le contrôleur avec une nouvelle connexion à la base de données
-        $controller = new $params[0](new dbConnection('lt_blog_php','localhost','root','root'));
+        $controller = new $params[0](new dbConnection(DB_NAME,DB_HOST,DB_USER,DB_PSW));
         $method = $params[1];
         // Appelle la méthode du contrôleur avec ou sans paramètre
         return isset($this->matches[1]) ? $controller->$method($this->matches[1]) : $controller->$method();
