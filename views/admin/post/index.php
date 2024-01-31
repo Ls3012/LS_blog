@@ -16,7 +16,7 @@
       <td><?= $post->title ?></td>
       <td><?= $post->getCreatedAt() ?></td>
       <td>
-        <a href="#" class="btn btn-warning">Modifier</a>
+        <a href="/ProjetsOC/LS_Blog/admin/posts/edit/<?= $post->idArticle ?>" class="btn btn-warning">Modifier</a>
         <form action="/ProjetsOC/LS_Blog/admin/posts/delete/<?= $post->idArticle ?>" method="POST" class="d-inline">
                         <button type="submit" class="btn btn-danger">Supprimer</button>
       </td>

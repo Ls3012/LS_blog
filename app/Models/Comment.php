@@ -12,7 +12,7 @@ class Comment extends Model
 
     public function getCommentsByPostId(int $post_id)
     {
-        return $this->query("SELECT c.*, u.nickname FROM {$this->table} c JOIN lt_blog_user u ON c.idUser = u.idUser WHERE c.idArticle = ? ORDER BY c.creationDate_Com DESC", $post_id);
+        return $this->query("SELECT c.*, u.nickname FROM {$this->table} c JOIN lt_blog_user u ON c.idUser = u.idUser WHERE c.idArticle = ? ORDER BY c.creationDate_Com DESC", [$post_id]);
         //$stmt = $this->db->getPDO()->prepare("SELECT c.*, u.nickname FROM {$this->table} c JOIN lt_blog_user u ON c.idUser = u.idUser WHERE c.idArticle = ? ORDER BY c.creationDate_Com DESC");
         //$stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
         //$stmt->execute([$post_id]);
