@@ -12,11 +12,26 @@ class PostController extends Controller{
         return $this->view('admin.post.index', compact('posts'));
     }
 
+    public function create()
+    {
+        return $this ->view('admin.post.form');
+    }
+
+    public function createPost()
+    {
+        $post = new Post($this->getDB());
+        $result = $post->create($_POST);
+
+        //if ($result) {
+            return header('Location: /ProjetsOC/LS_Blog/admin/posts');
+        //}
+    }
+
     public function edit(int $id)
     {
         $post = (new Post($this->getDB()))->findById($id);
 
-        return $this->view('admin.post.edit', compact('post'));
+        return $this->view('admin.post.form', compact('post'));
     }
 
     public function update(int $id)

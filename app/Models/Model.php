@@ -25,6 +25,28 @@ abstract class Model{
         return $this->query("SELECT * FROM {$this->table} WHERE idArticle = ?", [$id], true);
     }
 
+    public function create(array $data, ?array $relations = null)
+    {
+
+        $firstParenthesis = "";
+        $secondParenthesis = "";
+        $i = 1;
+
+        foreach ($data as $key => $value) 
+        {
+            $comma = $i === count($data) ? "" : ", ";
+            $firstParenthesis .= "{$key}{$comma}";
+            $secondParenthesis .= ":{$key}{$comma}";
+            $i++;
+        }
+
+        return $this->query("INSERT INTO {$this->table} ($firstParenthesis) VALUES($secondParenthesis)", $data);
+
+    }
+
+
+
+
     public function update(int $id, array $data)
     {
         $sqlRequestPart = "";
@@ -32,7 +54,7 @@ abstract class Model{
 
         foreach ($data as $key => $value) 
         {
-            $comma = $i === count($data) ? " " : ', ';
+            $comma = $i === count($data) ? "" : ', ';
             $sqlRequestPart .= "{$key} = :{$key}{$comma}";
             $i++;
         }
