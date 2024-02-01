@@ -21,6 +21,14 @@
       <li class="nav-item">
         <a class="nav-link" href="/ProjetsOC/LS_Blog/posts">Articles</a>
       </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+
+      <?php if(isset($_SESSION['auth']) && $_SESSION['auth']): ?>
+      <li class="nav-item">
+        <a class="nav-link" href="/ProjetsOC/LS_Blog/logout">Se deconnecter </a>
+      </li>
+      <?php endif ?>
 
     </ul>
   </div>

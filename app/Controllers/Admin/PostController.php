@@ -7,6 +7,9 @@ use App\Models\Post;
 
 class PostController extends Controller{
     public function index(){
+
+        $this->isAdmin();
+
         $posts = (new Post($this->getDB()))->all();
         
         return $this->view('admin.post.index', compact('posts'));
