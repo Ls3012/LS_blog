@@ -5,6 +5,8 @@ use App\Exceptions\NotFoundException;
 
 require '../vendor/autoload.php';
 
+session_start();
+
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
 define('DB_NAME', 'lt_blog_php');
@@ -22,6 +24,15 @@ $router ->get ('/posts/:id','App\Controllers\BlogController@show');
 $router->get('/login', 'App\Controllers\UserController@login');
 $router->post('/login', 'App\Controllers\UserController@loginPost');
 $router->get('/logout', 'App\Controllers\UserController@logout');
+
+
+//EN TEST
+$router->post('/register', 'App\Controllers\UserController@registerPost');
+$router->get('/register', 'App\Controllers\UserController@registerForm');
+
+//EN TEST
+$router->post('/add-comment/:id', 'App\Controllers\BlogController@addComment');
+
 
 $router->get('/admin/posts', 'App\Controllers\Admin\PostController@index');
 $router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');

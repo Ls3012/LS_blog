@@ -24,4 +24,17 @@ class Comment extends Model
     {
         return (new DateTime($this->creationDate_com))->format('d/m/Y à H:i');
     }
+
+// EN TEST
+    public function addComment(int $post_id, ?int $user_id, string $content, string $creation_date)
+    {
+        $data = [
+            'idArticle' => $post_id,
+            'idUser' => $user_id,
+            'content_Com' => $content,
+            'creationDate_com' => $creation_date
+        ];
+
+        return $this->create($data);
+    }
 }

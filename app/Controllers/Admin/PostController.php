@@ -17,11 +17,15 @@ class PostController extends Controller{
 
     public function create()
     {
+        $this->isAdmin();
+
         return $this ->view('admin.post.form');
     }
 
     public function createPost()
     {
+        $this->isAdmin();
+
         $post = new Post($this->getDB());
         $result = $post->create($_POST);
 
@@ -32,6 +36,8 @@ class PostController extends Controller{
 
     public function edit(int $id)
     {
+        $this->isAdmin();
+
         $post = (new Post($this->getDB()))->findById($id);
 
         return $this->view('admin.post.form', compact('post'));
@@ -39,6 +45,8 @@ class PostController extends Controller{
 
     public function update(int $id)
     {
+        $this->isAdmin();
+
         $post = new Post($this->getDB());
         $result = $post->update($id, $_POST);
 
@@ -50,6 +58,7 @@ class PostController extends Controller{
 
     public function destroy(int $id)
     {
+        $this->isAdmin();
 
         $post = new Post($this->getDB());
         $result = $post->destroy($id);

@@ -14,4 +14,6 @@
     
     <button type="submit" class="btn btn-primary">Se connecter</button>
 
+    <p>Vous n'avez pas de compte? <a href="/ProjetsOC/LS_Blog/register">Inscrivez-vous ici</a>.</p>
+
 </form>

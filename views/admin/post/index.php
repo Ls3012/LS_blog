@@ -1,6 +1,6 @@
 <h1>Adminnistration des articles</h1>
 
-<?php if($_GET['success']): ?>
+<?php if(isset($_GET['success']) && $_GET['success']): ?>
 
   <div class="alert-success">Vous etes connecté</div>
 

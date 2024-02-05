@@ -10,4 +10,15 @@
     </div>
 <?php endforeach ?>
 
+<?php if(isset($_SESSION['auth']) && $_SESSION['auth']): ?>
+    <h3>Ajouter un commentaire</h3>
+    <form action="/ProjetsOC/LS_Blog/add-comment/<?= $params['post']->idArticle ?>" method="POST">
+        <div class="form-group">
+            <label for="comment">Votre commentaire</label>
+            <textarea class="form-control" name="comment" id="comment" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter le commentaire</button>
+    </form>
+<?php endif ?>
+
 <a href="/ProjetsOC/LS_Blog/posts" class="btn btn-secondary">Retourner aux articles</a>
