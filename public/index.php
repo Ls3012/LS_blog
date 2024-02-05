@@ -34,6 +34,7 @@ $router->get('/register', 'App\Controllers\UserController@registerForm');
 $router->post('/add-comment/:id', 'App\Controllers\BlogController@addComment');
 
 
+$router->get('/admin/', 'App\Controllers\Admin\PostController@adminHomepage');
 $router->get('/admin/posts', 'App\Controllers\Admin\PostController@index');
 $router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');
 $router->post('/admin/posts/create', 'App\Controllers\Admin\PostController@createPost');

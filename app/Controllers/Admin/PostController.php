@@ -6,6 +6,13 @@ use App\Controllers\Controller;
 use App\Models\Post;
 
 class PostController extends Controller{
+
+    public function adminHomepage(){
+
+        $this->isAdmin();
+        
+        return $this->view('admin.adminHomepage');
+    }
     public function index(){
 
         $this->isAdmin();
