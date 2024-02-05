@@ -10,7 +10,7 @@
     </div>
 <?php endforeach ?>
 
-<?php if(isset($_SESSION['auth']) && $_SESSION['auth']): ?>
+<?php if (isset($_SESSION['auth']) && ($_SESSION['auth'] === 0 || $_SESSION['auth'] === 1)): ?>
     <h3>Ajouter un commentaire</h3>
     <form action="/ProjetsOC/LS_Blog/add-comment/<?= $params['post']->idArticle ?>" method="POST">
         <div class="form-group">

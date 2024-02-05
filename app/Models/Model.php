@@ -105,5 +105,10 @@ abstract class Model{
         }
     }
 
+    public function findUserById(int $id): Model
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE idUser = ?", [$id], true);
+    }
+
     
 }

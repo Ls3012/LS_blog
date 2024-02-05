@@ -6,6 +6,21 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+
+        $this->isAdmin();
+
+        $users = (new User($this->getDB()))->getUserWithNullRole();
+
+        $adminUsers = (new User($this->getDB()))->getUserWithAdminRole();
+
+            
+        return $this->view('admin.user.index', compact('users', 'adminUsers'));
+
+
+    }
     public function login ()
     {
         return $this->view('auth.login');
@@ -17,18 +32,11 @@ class UserController extends Controller
 
         if(password_verify($_POST['password'], $user->password)){
             
-            $_SESSION['auth'] = (int)$user->idUser;
+            $_SESSION['auth'] = (int)$user->userRole;
             //EN TEST LIGNE
             $_SESSION['user_id'] = $user->idUser;
 
-            if ($user->userRole !== null) {
-                // Utilisateur admin
-                return header('Location: /ProjetsOC/LS_Blog/admin/posts?success=true');
-            } else {
-                // Utilisateur non admin
                 return header('Location: /ProjetsOC/LS_Blog/?success=true');
-            }
-
         }else {
             return header('Location: /ProjetsOC/LS_Blog/login');
         }
@@ -63,5 +71,29 @@ class UserController extends Controller
         session_destroy();
 
         return header('Location: /ProjetsOC/LS_Blog/');
+    }
+
+    public function delete(int $id)
+    {
+        $this->isAdmin();
+
+        $user = new User($this->getDB());
+        $result = $user->deleteUser($id);
+
+        if ($result) {
+            return header('Location: /ProjetsOC/LS_Blog/admin/users');
+        }
+    }
+
+    public function changeStatus(int $id)
+    {
+        $this->isAdmin();
+
+        $user = new User($this->getDB());
+        $result = $user->changeUserStatus($id);
+
+        if ($result) {
+            return header('Location: /ProjetsOC/LS_Blog/admin/users');
+        }
     }
 }

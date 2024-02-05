@@ -1,11 +1,5 @@
 <h1>Adminnistration des articles</h1>
 
-<?php if(isset($_GET['success']) && $_GET['success']): ?>
-
-  <div class="alert-success">Vous etes connecté</div>
-
-<?php endif ?>
-
 <a href="/ProjetsOC/LS_Blog/admin/posts/create/" class="btn btn-success my-3">Creer un article</a>
 
 <table class="table">

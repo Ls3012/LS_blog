@@ -19,7 +19,7 @@
       <div class="fw-bold">Les Utilisateur</div>
       Content for list item
     </div>
-    <a href="/ProjetsOC/LS_Blog/admin/posts">Consulter</a>
+    <a href="/ProjetsOC/LS_Blog/admin/users">Consulter</a>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">

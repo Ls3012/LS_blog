@@ -40,7 +40,7 @@ class BlogController extends Controller{
     public function addComment(int $post_id)
     {
 
-        if(isset($_SESSION['auth']) && $_SESSION['auth'])
+        if (isset($_SESSION['auth']) && ($_SESSION['auth'] === 0 || $_SESSION['auth'] === 1))
         {
             $commentModel = new Comment($this->getDB());
             $userId = $this->getUserIdFromSession();
@@ -63,7 +63,7 @@ class BlogController extends Controller{
     protected function getUserIdFromSession() 
     {
         // Vérifiez si l'utilisateur est connecté
-        if (isset($_SESSION['auth']) && $_SESSION['auth']) {
+        if (isset($_SESSION['auth']) && ($_SESSION['auth'] === 0 || $_SESSION['auth'] === 1)) {
             // Récupérez l'ID de l'utilisateur connecté
             return $_SESSION['user_id'];
         }
