@@ -26,6 +26,6 @@
       <div class="fw-bold">Les Commentaires</div>
       Content for list item
     </div>
-    <a href="/ProjetsOC/LS_Blog/admin/posts">Consulter</a>
+    <a href="/ProjetsOC/LS_Blog/admin/comments">Consulter</a>
   </li>
 </ol>

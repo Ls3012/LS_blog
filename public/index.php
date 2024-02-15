@@ -32,13 +32,15 @@ $router->get('/register', 'App\Controllers\UserController@registerForm');
 
 //EN TEST
 $router->post('/add-comment/:id', 'App\Controllers\BlogController@addComment');
+$router->get('/admin/comments', 'App\Controllers\Admin\CommentController@index');
+$router->post('/admin/comments/delete/:id', 'App\Controllers\Admin\CommentController@deleteComment');
+$router->post('/admin/comments/approve/:id', 'App\Controllers\Admin\CommentController@approveComment');
 
 //EN TEST
 
 $router->get('/admin/users', 'App\Controllers\UserController@index');
 $router->post('/admin/users/delete/:id', 'App\Controllers\UserController@delete');
 $router->post('/admin/users/change-status/:id', 'App\Controllers\UserController@changeStatus');
-
 
 $router->get('/admin/', 'App\Controllers\Admin\PostController@adminHomepage');
 $router->get('/admin/posts', 'App\Controllers\Admin\PostController@index');

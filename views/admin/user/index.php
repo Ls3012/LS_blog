@@ -24,7 +24,7 @@
                 <button type="submit" class="btn btn-danger">Supprimer</button>
             </form>
             <form action="/ProjetsOC/LS_Blog/admin/users/change-status/<?= $user->idUser ?>" method="POST" class="d-inline">
-                <button type="submit" class="btn btn-warning">Passer admin</button>
+                <button type="submit" class="btn btn-warning">Passer user</button>
             </form>
           </td>
         </tr>
@@ -53,7 +53,7 @@
                 <button type="submit" class="btn btn-danger">Supprimer</button>
             </form>
             <form action="/ProjetsOC/LS_Blog/admin/users/change-status/<?= $user->idUser ?>" method="POST" class="d-inline">
-                <button type="submit" class="btn btn-warning">Passer user</button>
+                <button type="submit" class="btn btn-warning">Passer admin</button>
             </form>
           </td>
         </tr>
